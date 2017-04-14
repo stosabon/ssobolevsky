@@ -25,4 +25,3 @@ public class CalculateTest {
 		assertThat(out.toString(), is(String.format("Hello World%s", System.getProperty("line.separator"))));
 	}
 }
- 
