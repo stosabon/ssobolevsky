@@ -1,6 +1,5 @@
 /**
-* Test package for determination of point location.
-*
+* Test package for Package for processing of functions.
 * @author Stanislav Sobolevsky (mailto:stosabon@mail.ru)
 * @version 1
 * @since 17.04.2017
