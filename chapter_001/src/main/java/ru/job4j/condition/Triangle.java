@@ -1,11 +1,11 @@
 package ru.job4j.condition;
 
+import static java.lang.Math.abs;
 /**
 * @author ssobolevsky
 * @since 17.04.2017
 * @version 1
 */
-
 public class Triangle {
 	/**
 	* Coordinates of triangle.
@@ -27,6 +27,7 @@ public class Triangle {
 	* @return area of a triangle
 	*/
 	public double area() {
-		return ((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2 != 0 ? ((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2 : 0.0;
+		double area = abs(((a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY())) / 2);
+		return area;
 	}
 }

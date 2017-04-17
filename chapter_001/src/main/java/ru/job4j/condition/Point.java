@@ -40,7 +40,7 @@ public class Point {
 	* @return true or false
 	*/
 	public boolean is(int a, int b) {
-		return y == a * x + b ? true : false;
+		return y == a * x + b;
 	}
 
 }
