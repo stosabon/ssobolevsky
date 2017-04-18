@@ -32,5 +32,14 @@ public class MaxTest {
 		int expected = 5;
 		assertThat(result, is(expected));
 	}
-
+	/**
+	* Test where second is max number.
+	*/
+	@Test
+	public void whenTwoAndThreeCompareWithZeroThenThree() {
+		Max max = new Max();
+		int result = max.max(max.max(2, 3), 0);
+		int expected = 3;
+		assertThat(result, is(expected));
+	}
 }

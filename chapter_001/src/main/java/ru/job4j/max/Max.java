@@ -21,4 +21,14 @@ public class Max {
 		max = first > second ? first : second;
 		return max;
 	}
+	/**
+	* Method to find max from three nubmers.
+	* @param first - first argument
+	* @param second - second argument
+	* @param third -third argument
+	* @return max number
+	*/
+	public int max(int first, int second, int third) {
+		return max(max(first, second), third);
+	}
 }
