@@ -8,12 +8,6 @@ package ru.job4j.loop;
 */
 
 public class Counter {
-
-	/**
-	* Variables for counting sum.
-	*/
-	private int first, second;
-
 	/**
 	* Method to sum even numbers.
 	* @param start - start number
