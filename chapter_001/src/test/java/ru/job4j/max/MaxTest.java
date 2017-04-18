@@ -38,7 +38,7 @@ public class MaxTest {
 	@Test
 	public void whenTwoAndThreeCompareWithZeroThenThree() {
 		Max max = new Max();
-		int result = max.max(max.max(2, 3), 0);
+		int result = max.max(2, 3, 0);
 		int expected = 3;
 		assertThat(result, is(expected));
 	}
