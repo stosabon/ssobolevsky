@@ -22,9 +22,9 @@ public class StringSearch {
 					int count = 0;
 					for (int j = 0; j <substring.length; j++) {
 						if (origingStrim[i + j] == subString[k]){
-    						count++;
+							count++;
 						} else {
-   							break;
+							break;
 						}
 					}
 					if (count == substring.length) {
