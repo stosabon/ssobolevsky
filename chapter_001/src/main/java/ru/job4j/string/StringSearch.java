@@ -20,8 +20,8 @@ public class StringSearch {
 			for (int i = 0; i <= originString.length - substring.length; i++) {
 				if (originString[i] == substring[0]) {
 					int count = 0;
-					for (int j = 0; j <substring.length; j++) {
-						if (origingStrim[i + j] == subString[k]){
+					for (int j = 0; j < substring.length; j++) {
+						if (originString[i + j] == substring[j]) {
 							count++;
 						} else {
 							break;
