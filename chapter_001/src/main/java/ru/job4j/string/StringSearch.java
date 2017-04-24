@@ -19,12 +19,15 @@ public class StringSearch {
 		if (originString.length >= substring.length) {
 			for (int i = 0; i <= originString.length - substring.length; i++) {
 				if (originString[i] == substring[0]) {
-					int j = 0;
-					while (j < substring.length && originString[i] == substring[j]) {
-						j++;
-						i++;
+					int count = 0;
+					for (int j = 0; j <substring.length; j++) {
+						if (origingStrim[i + j] == subString[k]){
+    						count++;
+						} else {
+   							break;
+						}
 					}
-					if (j == substring.length) {
+					if (count == substring.length) {
 						isContained = true;
 					}
 				}
