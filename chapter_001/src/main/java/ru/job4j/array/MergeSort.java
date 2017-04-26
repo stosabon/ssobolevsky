@@ -13,18 +13,18 @@ public class MergeSort {
 	* @return sorted array
 	*/
 	public int[] mergeSort(int[] firstArray, int[] secondArray) {
-		int j = 0;
+		int j = 0, i = 0;
 		int[] newArray = new int[firstArray.length + secondArray.length];
-		int newLength = 0;
-		for (int i = 0; i < firstArray.length; i++) {
-			while (j < secondArray.length && secondArray[j] <= firstArray[i]) {
-				newArray[newLength++] = secondArray[j++];
-			}
-				newArray[newLength++] = firstArray[i];
+		while (j < secondArray.length && i < firstArray.length) {
+    		newArray[i + j] = firstArray[i] < secondArray[j] ? firstArray[i++] : secondArray[j++];
 		}
 		while (j < secondArray.length) {
-				newArray[newLength++] = secondArray[j++];
+				newArray[i + j] = secondArray[j++];
 			}
+		while (i < firstArray.length) {
+				newArray[i + j] = secondArray[i++];
+			}
+
 		return newArray;
 	}
 }
