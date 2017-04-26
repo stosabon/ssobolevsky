@@ -19,11 +19,11 @@ public class MergeSort {
     		newArray[i + j] = firstArray[i] < secondArray[j] ? firstArray[i++] : secondArray[j++];
 		}
 		while (j < secondArray.length) {
-				newArray[i + j] = secondArray[j++];
-			}
+			newArray[i + j] = secondArray[j++];
+		}
 		while (i < firstArray.length) {
-				newArray[i + j] = secondArray[i++];
-			}
+			newArray[i + j] = secondArray[i++];
+		}
 
 		return newArray;
 	}
