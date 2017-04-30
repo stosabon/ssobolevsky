@@ -3,7 +3,7 @@ package ru.job4j.profession;
 /**
  * Created by pro on 30.04.2017.
  */
-public class Teacher extends Profession {
+public class Teacher extends Profession{
     private String lesson;
 
     public void teach() {
