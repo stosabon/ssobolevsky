@@ -18,7 +18,7 @@ public class Tracker {
     * @return added Item
     */
     public Item add(Item item) {
-        this.items[numOfItems++] = item;
+        this.items[this.numOfItems++] = item;
         return item;
     }
     /**
@@ -26,9 +26,9 @@ public class Tracker {
     * @param item - input Item
     */
     public void updateItem(Item item) {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].getId().equals(item.getId())) {
-                items[i] = item;
+        for (int i = 0; i < this.numOfItems; i++) {
+            if (this.items[i].getId().equals(item.getId())) {
+                this.items[i] = item;
                 break;
             }
         }
@@ -38,13 +38,13 @@ public class Tracker {
     * @param item - input Item
     */
     public void deleteItem(Item item) {
-        for (int i = 0; i < this.items.length; i++) {
-            if (items[i].getId().equals(item.getId())) {
-                if (i == this.items.length - 1) {
-                    System.arraycopy(this.items, i + 1, this.items, i, this.items.length - 1);
+        for (int i = 0; i < this.numOfItems; i++) {
+            if (this.items[i].getId().equals(item.getId())) {
+                if (i == this.numOfItems - 1) {
+                    System.arraycopy(this.items, i + 1, this.items, i, this.numOfItems - 1);
                 } else {
-                    items[i] = null;
-                    numOfItems--;
+                    this.items[i] = null;
+                    this.numOfItems--;
                 }
                 break;
             }
@@ -70,14 +70,14 @@ public class Tracker {
     * @return array of items
     */
     public Item[] findByName(String key) {
-        Item[] items = new Item[this.numOfItems];
-        int numOfItems = 0;
-        for (Item currentItem : this.items) {
-            if (currentItem.getName().equals(key)) {
-                items[numOfItems++] = currentItem;
+        Item[] newItems = new Item[this.numOfItems];
+        int newNumOfItems = 0;
+        for (int i = 0; i < this.numOfItems; i++) {
+            if (this.items[i].getName() != null && this.items[i].getName().equals(key)) {
+                newItems[newNumOfItems++] = this.items[i];
             }
         }
-        return items;
+        return newItems;
     }
     /**
     * Method to find Item by ID.
@@ -86,9 +86,9 @@ public class Tracker {
     */
     public Item findById(String id) {
         Item result = null;
-        for (Item currentItem : this.items) {
-            if (currentItem.getId().equals(id)) {
-                result = currentItem;
+        for (int i = 0; i < this.numOfItems; i++) {
+            if (items[i].getId() != null && items[i].getId().equals(id)) {
+                result = this.items[i];
                 break;
             }
         }
