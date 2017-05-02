@@ -41,10 +41,10 @@ public class Tracker {
         for (int i = 0; i < this.numOfItems; i++) {
             if (this.items[i].getId().equals(item.getId())) {
                 if (i == this.numOfItems - 1) {
-                    System.arraycopy(this.items, i + 1, this.items, i, this.numOfItems - 1);
-                } else {
                     this.items[i] = null;
                     this.numOfItems--;
+                } else {
+                    System.arraycopy(this.items, i + 1, this.items, i, this.numOfItems - 1);
                 }
                 break;
             }
