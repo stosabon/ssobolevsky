@@ -45,6 +45,7 @@ public class Tracker {
                     this.numOfItems--;
                 } else {
                     System.arraycopy(this.items, i + 1, this.items, i, this.numOfItems - 1);
+                    this.numOfItems--;
                 }
                 break;
             }
