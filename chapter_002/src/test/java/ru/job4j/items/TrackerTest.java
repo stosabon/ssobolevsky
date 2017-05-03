@@ -41,9 +41,9 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("1", "firstItem", "desc", 2124323, new String[] {"no comments"});
         Item item2 = new Item("2", "firstItem2", "desc2", 21243232, new String[] {"no comments 2"});
-        Item item3 = new Item("2", "firstItem2", "desc2", 21243232, new String[] {"no comments 2"});
-        Item item4 = new Item("2", "firstItem2", "desc2", 21243232, new String[] {"no comments 2"});
-        Item item5 = new Item("2", "firstItem2", "desc2", 21243232, new String[] {"no comments 2"});
+        Item item3 = new Item("3", "firstItem2", "desc2", 21243232, new String[] {"no comments 2"});
+        Item item4 = new Item("4", "firstItem2", "desc2", 21243232, new String[] {"no comments 2"});
+        Item item5 = new Item("5", "firstItem2", "desc2", 21243232, new String[] {"no comments 2"});
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);

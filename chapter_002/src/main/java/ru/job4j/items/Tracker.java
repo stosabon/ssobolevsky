@@ -44,7 +44,7 @@ public class Tracker {
                     this.items[i] = null;
                     this.numOfItems--;
                 } else {
-                    System.arraycopy(this.items, i + 1, this.items, i, this.numOfItems - 1);
+                    System.arraycopy(this.items, i + 1, this.items, i, this.numOfItems - i - 1);
                     this.numOfItems--;
                 }
                 break;
@@ -58,9 +58,9 @@ public class Tracker {
     public Item[] findAll() {
         Item[] items = new Item[this.numOfItems];
         int numOfItems = 0;
-        for (Item currentItem : this.items) {
-            if (currentItem != null) {
-                items[numOfItems++] = currentItem;
+        for (int i = 0; i < this.numOfItems; i++) {
+            if (this.items[i] != null) {
+                items[numOfItems++] = this.items[i];
             }
         }
         return items;
