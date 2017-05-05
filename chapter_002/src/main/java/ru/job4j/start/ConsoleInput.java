@@ -7,7 +7,10 @@ import java.util.Scanner;
 /**
  * Created by pro on 03.05.2017.
  */
-public class ConsoleInput implements Input{
+public class ConsoleInput implements Input {
+    /**
+     * Variable to input data.
+     */
     private Scanner scanner = new Scanner(System.in);
 
     /**

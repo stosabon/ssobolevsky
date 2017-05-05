@@ -23,19 +23,23 @@ public class Item {
     */
     private long created;
     /**
-    * Item comment.
+    * Item comments.
     */
-    private String[] comments;
+    private String[] comments = new String[10];
+    /**
+     * num of Item comments.
+     */
+    private int numOfComments = 0;
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
-                ", created=" + created +
-                ", comments=" + Arrays.toString(comments) +
-                '}';
+        return "Item{"
+                + "id='" + id + '\''
+                + ", name='" + name + '\''
+                + ", desc='" + desc + '\''
+                + ", created=" + created
+                + ", comments=" + Arrays.toString(comments)
+                + '}';
     }
 
     /**
@@ -121,5 +125,13 @@ public class Item {
      */
     public void setComments(String[] comments) {
         this.comments = comments;
+    }
+
+    /**
+     * Method to add comment to array of comments.
+     * @param comment - one comment
+     */
+    public void addComment(String comment) {
+        this.comments[numOfComments++] = comment;
     }
 }

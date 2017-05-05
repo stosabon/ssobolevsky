@@ -6,8 +6,8 @@ package ru.job4j.interfaces;
 public interface Input {
     /**
      * Method to ask user.
-     * @param question
-     * @return
+     * @param question - question
+     * @return answer
      */
     String ask(String question);
 }
