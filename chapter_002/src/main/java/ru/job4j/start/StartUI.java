@@ -3,8 +3,6 @@ package ru.job4j.start;
 import ru.job4j.items.Item;
 import ru.job4j.items.Tracker;
 
-import java.util.Arrays;
-
 /**
  * Created by pro on 03.05.2017.
  */
@@ -41,8 +39,8 @@ public class StartUI {
                         new Item(input.ask("Enter id: "),
                         input.ask("Enter name: "),
                         input.ask("Enter description: "),
-                        Long.parseLong(input.ask("Enter data of created: ")),
-                        input.ask("Enter comments: "))); // - как передать именно строку а не массив строк? Уже два дня с этим бьюсь
+                        Long.parseLong(input.ask("Enter data of created: "))
+                        ));
             }
             else if (result == SHOW) {
                 Item[] allItems = tracker.findAll();
@@ -54,7 +52,6 @@ public class StartUI {
                 Item item = tracker.findById(input.ask("Enter id: "));
                 item.setName(input.ask("Enter name: "));
                 item.setDesc(input.ask("Enter description: "));
-                item.setComments();
                 tracker.updateItem(item);
                 System.out.println("Item updated");
             }

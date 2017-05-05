@@ -44,14 +44,12 @@ public class Item {
      * @param name - name of item
      * @param desc - description of item
      * @param created - data of created
-     * @param comments - comments of item
      */
-    public Item(String id, String name, String desc, long created, String[] comments) {
+    public Item(String id, String name, String desc, long created) {
         this.id = id;
         this.name = name;
         this.desc = desc;
         this.created = created;
-        this.comments = comments;
     }
 
     /**
