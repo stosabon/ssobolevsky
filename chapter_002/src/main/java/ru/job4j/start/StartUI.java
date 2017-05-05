@@ -9,59 +9,71 @@ import java.util.Arrays;
  * Created by pro on 03.05.2017.
  */
 public class StartUI {
+    public static final int ADD = 0;
+    public static final int SHOW = 1;
+    public static final int UPDATE = 2;
+    public static final int DELETE = 3;
+    public static final int FINDBYID = 4;
+    public static final int FINDBYNAME = 5;
+    public static final int EXIT = 6;
 
+    Tracker tracker;
+    ConsoleInput input;
     public static void main(String[] args) {
         new StartUI().init();
+    }
+
+    public StartUI() {
+        this.tracker = new Tracker();
+        this.input = new ConsoleInput();
     }
 
     /**
      * Methot to start app.
      */
     public void init() {
-        Tracker tracker = new Tracker();
-        ConsoleInput input = new ConsoleInput();
+
         showMenu();
-        String result = input.ask("Select: ");
-        while (!result.equals("6")) {
-            if (result.equals("0")) {
+        int result = Integer.valueOf(input.ask("Select: "));
+        while (result != EXIT) {
+            if (result == ADD) {
                         tracker.add(
                         new Item(input.ask("Enter id: "),
                         input.ask("Enter name: "),
                         input.ask("Enter description: "),
                         Long.parseLong(input.ask("Enter data of created: ")),
-                        input.ask("Enter comments: ")));
+                        input.ask("Enter comments: "))); // - как передать именно строку а не массив строк? Уже два дня с этим бьюсь
             }
-            else if (result.equals("1")){
+            else if (result == SHOW) {
                 Item[] allItems = tracker.findAll();
                 for (Item item: allItems) {
                     System.out.println(item);
                 }
             }
-            else if (result.equals("2")){
+            else if (result == UPDATE) {
                 Item item = tracker.findById(input.ask("Enter id: "));
+                item.setName(input.ask("Enter name: "));
+                item.setDesc(input.ask("Enter description: "));
+                item.setComments();
                 tracker.updateItem(item);
                 System.out.println("Item updated");
             }
-            else if (result.equals("3")){
+            else if (result == DELETE) {
                 Item item = tracker.findById(input.ask("Enter id: "));
                 tracker.deleteItem(item);
                 System.out.println("Item deleted");
             }
-            else if (result.equals("4")){
+            else if (result == FINDBYID) {
                 Item item =tracker.findById(input.ask("Enter id: "));
-                System.out.println("id : " + item.getId() + " name: " + item.getName()
-                        + " description: " + item.getDesc() + " data created: " +
-                        item.getCreated() + " comments: " + item.getComments());
+                System.out.println(item.toString());
             }
-            else if (result.equals("5")){
+            else if (result == FINDBYNAME) {
                 Item[] items = tracker.findByName(input.ask("Enter name: "));
                 for (Item item : items) {
-                    System.out.println("id : " + item.getId() + " name: " + item.getName()
-                            + " description: " + item.getDesc() + " data created: " +
-                            item.getCreated() + " comments: " + item.getComments());
+                    System.out.println(item.toString());
                 }
             }
-            result = input.ask("Select: ");
+            result = Integer.valueOf(input.ask("Select: "));
         }
 
     }

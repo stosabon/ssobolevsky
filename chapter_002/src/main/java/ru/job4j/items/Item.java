@@ -1,5 +1,7 @@
 package ru.job4j.items;
 
+import java.util.Arrays;
+
 /**
  * Created by pro on 01.05.2017.
  */
@@ -24,6 +26,17 @@ public class Item {
     * Item comment.
     */
     private String[] comments;
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", created=" + created +
+                ", comments=" + Arrays.toString(comments) +
+                '}';
+    }
 
     /**
      * Contructor of item.
