@@ -97,7 +97,6 @@ public class StartUI {
                     System.out.println(item.toString());
                 }
             }
-
             result = Integer.valueOf(input.ask("Select: "));
         }
 
