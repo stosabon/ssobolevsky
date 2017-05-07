@@ -1,5 +1,6 @@
 package ru.job4j.start;
 
+import ru.job4j.interfaces.Input;
 import ru.job4j.items.Item;
 import ru.job4j.items.Tracker;
 
@@ -42,27 +43,29 @@ public class StartUI {
     /**
      * Console input object.
      */
-    private ConsoleInput input;
+    private Input input;
     /**
      * Main method to run program.
      * @param args - args
      */
     public static void main(String[] args) {
-        new StartUI().init();
+       new StartUI(new ConsoleInput(), new Tracker()).init();
     }
+
     /**
      * Constructor to run program.
+     * @param input - input initialize
+     * @param tracker - tracker initialize
      */
-    public StartUI() {
-        this.tracker = new Tracker();
-        this.input = new ConsoleInput();
+    public StartUI(Input input, Tracker tracker) {
+        this.tracker = tracker;
+        this.input = input;
     }
 
     /**
      * Method to start app.
      */
     public void init() {
-
         showMenu();
         int result = Integer.valueOf(input.ask("Select: "));
         while (result != EXIT) {
@@ -94,7 +97,9 @@ public class StartUI {
             } else if (result == FINDBYNAME) {
                 Item[] items = tracker.findByName(input.ask("Enter name: "));
                 for (Item item : items) {
-                    System.out.println(item.toString());
+                    if (item != null) {
+                        System.out.println(item.toString());
+                    }
                 }
             }
             result = Integer.valueOf(input.ask("Select: "));
