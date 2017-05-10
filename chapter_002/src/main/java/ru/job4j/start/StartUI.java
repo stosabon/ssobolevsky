@@ -1,7 +1,6 @@
 package ru.job4j.start;
 
 import ru.job4j.interfaces.Input;
-import ru.job4j.items.Item;
 import ru.job4j.items.Tracker;
 
 /**
@@ -66,42 +65,12 @@ public class StartUI {
      * Method to start app.
      */
     public void init() {
-        showMenu();
+        MenuTracker menuTracker = new MenuTracker(input, tracker);
+        menuTracker.fillActions();
+        menuTracker.showMenu();
         int result = Integer.valueOf(input.ask("Select: "));
         while (result != EXIT) {
-            if (result == ADD) {
-                tracker.add(
-                        new Item(input.ask("Enter id: "),
-                        input.ask("Enter name: "),
-                        input.ask("Enter description: "),
-                        Long.parseLong(input.ask("Enter data of created: "))
-                        )); // - как передать именно строку а не массив строк? Уже два дня с этим бьюсь
-            } else if (result == SHOW) {
-                Item[] allItems = tracker.findAll();
-                for (Item item: allItems) {
-                    System.out.println(item);
-                }
-            } else if (result == UPDATE) {
-                Item item = tracker.findById(input.ask("Enter id: "));
-                item.setName(input.ask("Enter name: "));
-                item.setDesc(input.ask("Enter description: "));
-                tracker.updateItem(item);
-                System.out.println("Item updated");
-            } else if (result == DELETE) {
-                Item item = tracker.findById(input.ask("Enter id: "));
-                tracker.deleteItem(item);
-                System.out.println("Item deleted");
-            } else if (result == FINDBYID) {
-                Item item = tracker.findById(input.ask("Enter id: "));
-                System.out.println(item.toString());
-            } else if (result == FINDBYNAME) {
-                Item[] items = tracker.findByName(input.ask("Enter name: "));
-                for (Item item : items) {
-                    if (item != null) {
-                        System.out.println(item.toString());
-                    }
-                }
-            }
+            menuTracker.select(result);
             result = Integer.valueOf(input.ask("Select: "));
         }
 
