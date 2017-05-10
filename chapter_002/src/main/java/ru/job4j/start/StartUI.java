@@ -8,30 +8,6 @@ import ru.job4j.items.Tracker;
  */
 public class StartUI {
     /**
-     * Answer to add item.
-     */
-    public static final int ADD = 0;
-    /**
-     * Answer to show all items.
-     */
-    public static final int SHOW = 1;
-    /**
-     * Answer to update item.
-     */
-    public static final int UPDATE = 2;
-    /**
-     * Answer to delete item.
-     */
-    public static final int DELETE = 3;
-    /**
-     * Answer to find item by id.
-     */
-    public static final int FINDBYID = 4;
-    /**
-     * Answer to find all items by name.
-     */
-    public static final int FINDBYNAME = 5;
-    /**
      * Answer to exit program.
      */
     public static final int EXIT = 6;
