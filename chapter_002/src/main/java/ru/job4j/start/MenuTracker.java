@@ -160,8 +160,7 @@ public class MenuTracker {
             tracker.add(
                     new Item(input.ask("Enter id: "),
                             input.ask("Enter name: "),
-                            input.ask("Enter description: "),
-                            Long.parseLong(input.ask("Enter data of created: "))
+                            input.ask("Enter description: ")
                     ));
         }
 

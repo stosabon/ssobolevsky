@@ -15,8 +15,8 @@ public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("1", "firstItem", "desc", 2124323);
-        Item item2 = new Item("2", "firstItem2", "desc2", 21243232);
+        Item item = new Item("1", "firstItem", "desc");
+        Item item2 = new Item("2", "firstItem2", "desc2");
         tracker.add(item);
         tracker.add(item2);
         assertThat(tracker.findAll()[1], is(item2));
@@ -27,8 +27,8 @@ public class TrackerTest {
     @Test
     public void whenUpdateItemThenOldItemChanged() {
         Tracker tracker = new Tracker();
-        Item item = new Item("1", "firstItem", "desc", 2124323);
-        Item newItem = new Item("1", "firstItem2", "desc2", 21243232);
+        Item item = new Item("1", "firstItem", "desc");
+        Item newItem = new Item("1", "firstItem2", "desc2");
         tracker.add(item);
         tracker.updateItem(newItem);
         assertThat(tracker.findAll()[0], is(newItem));
@@ -39,11 +39,11 @@ public class TrackerTest {
     @Test
     public void whenDeleteItemThenThisItemDeletedInTracker() {
         Tracker tracker = new Tracker();
-        Item item = new Item("1", "firstItem", "desc", 2124323);
-        Item item2 = new Item("2", "firstItem2", "desc2", 21243232);
-        Item item3 = new Item("3", "firstItem2", "desc2", 21243232);
-        Item item4 = new Item("4", "firstItem2", "desc2", 21243232);
-        Item item5 = new Item("5", "firstItem2", "desc2", 21243232);
+        Item item = new Item("1", "firstItem", "desc");
+        Item item2 = new Item("2", "firstItem2", "desc2");
+        Item item3 = new Item("3", "firstItem2", "desc2");
+        Item item4 = new Item("4", "firstItem2", "desc2");
+        Item item5 = new Item("5", "firstItem2", "desc2");
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
@@ -58,8 +58,8 @@ public class TrackerTest {
     @Test
     public void whenIdEqualsThenReturnedNotNull() {
         Tracker tracker = new Tracker();
-        Item item = new Item("1", "firstItem", "desc", 2124323);
-        Item item2 = new Item("2", "firstItem", "desc", 2124323);
+        Item item = new Item("1", "firstItem", "desc");
+        Item item2 = new Item("2", "firstItem", "desc");
         tracker.add(item);
         tracker.add(item2);
         assertThat(tracker.findById("2"), is(item2));
@@ -70,8 +70,8 @@ public class TrackerTest {
     @Test
     public void whenNameEqualsThenReturnedNotNull() {
         Tracker tracker = new Tracker();
-        Item item = new Item("1", "firstItem", "desc", 2124323);
-        Item item2 = new Item("2", "firstItem", "desc2", 21243232);
+        Item item = new Item("1", "firstItem", "desc");
+        Item item2 = new Item("2", "firstItem", "desc2");
         tracker.add(item);
         tracker.add(item2);
         assertThat(tracker.findByName("firstItem")[0], is(item));
