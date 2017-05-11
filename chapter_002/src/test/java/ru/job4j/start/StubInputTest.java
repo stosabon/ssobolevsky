@@ -17,7 +17,7 @@ public class StubInputTest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "07052017", "6"});
+        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll()[0].getName(), is("test name"));
     }
@@ -27,7 +27,7 @@ public class StubInputTest {
     @Test
     public void whenUserEditItemThenTrackerHasThisItemWithNewData() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "07052017", "2", "1", "Stas", "programmer", "6"});
+        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "2", "1", "Stas", "programmer", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll()[0].getName(), is("Stas"));
     }
@@ -37,7 +37,7 @@ public class StubInputTest {
     @Test
     public void whenUserDeleteItemThenTrackerHasNotThisItem() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "07052017", "0", "1", "Stas", "programmer", "07052017", "3", "1", "6"});
+        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "0", "1", "Stas", "programmer", "3", "1", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll()[0].getName(), is("Stas"));
     }
@@ -47,7 +47,7 @@ public class StubInputTest {
     @Test
     public void whenUserFindItemByIdTrackerFindThisItems() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "07052017", "0", "2", "Stas", "programmer", "07052017", "4", "1", "6"});
+        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "0", "2", "Stas", "programmer", "4", "1", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findById("2"), is(tracker.findAll()[1]));
     }
@@ -57,7 +57,7 @@ public class StubInputTest {
     @Test
     public void whenUserFindItemByNameTrackerFindThisItem() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "07052017", "0", "2", "Stas", "programmer", "07052017", "5", "Stas", "6"});
+        Input input = new StubInput(new String[]{"0", "1", "test name", "desc", "0", "2", "Stas", "programmer", "5", "Stas", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findByName("Stas")[0], is(tracker.findAll()[1]));
     }

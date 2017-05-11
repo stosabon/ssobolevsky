@@ -7,6 +7,9 @@ import ru.job4j.items.Tracker;
  * Created by pro on 03.05.2017.
  */
 public class StartUI {
+    /**
+     * Array of allowed values.
+     */
     private static final int[] RANGE = new int[] {0, 1, 2, 3, 4, 5, 6};
     /**
      * Answer to exit program.
