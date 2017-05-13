@@ -32,7 +32,9 @@ public abstract class BaseAction implements UserAction {
      * @return key
      */
     @Override
-    public abstract int key();
+    public int key() {
+        return this.key;
+    }
 
     /**
      * Method to execute action.

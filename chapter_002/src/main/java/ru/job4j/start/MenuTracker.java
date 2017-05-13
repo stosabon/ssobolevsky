@@ -18,16 +18,6 @@ class EditItem extends BaseAction {
     EditItem(int key, String name) {
         super(key, name);
     }
-
-    /**
-     * Method to return key of edit action.
-     * @return key of edit action
-     */
-    @Override
-    public int key() {
-        return 2;
-    }
-
     /**
      * Method to edit item.
      * @param input - way of input
@@ -55,16 +45,6 @@ class FindItemsByName extends BaseAction {
     FindItemsByName(int key, String name) {
         super(key, name);
     }
-
-    /**
-     * Key of find action.
-     * @return key
-     */
-    @Override
-    public int key() {
-        return 5;
-    }
-
     /**
      * Method to find items by name.
      * @param input - way of input
@@ -151,15 +131,6 @@ public class MenuTracker {
         }
 
         /**
-         * Key of add action.
-         * @return - key
-         */
-        @Override
-        public int key() {
-            return 0;
-        }
-
-        /**
          * Method to add item.
          * @param input - way of input
          * @param tracker - tracker
@@ -184,15 +155,6 @@ public class MenuTracker {
          */
         DeleteItem(int key, String name) {
             super(key, name);
-        }
-
-        /**
-         * Key of delete action.
-         * @return - key
-         */
-        @Override
-        public int key() {
-            return 3;
         }
         /**
          * Method to delete item.
@@ -219,15 +181,6 @@ public class MenuTracker {
         ExitProgram(int key, String name) {
             super(key, name);
         }
-
-        /**
-         * Key of exit action.
-         * @return - key
-         */
-        @Override
-        public int key() {
-            return 6;
-        }
         /**
          * Method to exit program.
          * @param input - way of input
@@ -249,15 +202,6 @@ public class MenuTracker {
          */
         ShowItems(int key, String name) {
             super(key, name);
-        }
-
-        /**
-         * Key of show action.
-         * @return - key
-         */
-        @Override
-        public int key() {
-            return 1;
         }
         /**
          * Method to show items.
@@ -283,16 +227,6 @@ public class MenuTracker {
          */
         FindItemById(int key, String name) {
             super(key, name);
-        }
-
-        /**
-         * Key of find item by id action.
-         *
-         * @return - key
-         */
-        @Override
-        public int key() {
-            return 4;
         }
 
         /**
