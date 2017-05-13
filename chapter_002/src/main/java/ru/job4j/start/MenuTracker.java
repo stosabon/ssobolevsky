@@ -41,15 +41,6 @@ class EditItem extends BaseAction {
         tracker.updateItem(item);
         System.out.println("Item has been updated");
     }
-
-    /**
-     * Menu line.
-     * @return line of menu.
-     */
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Edit item.");
-    }
 }
 
 /**
@@ -86,15 +77,6 @@ class FindItemsByName extends BaseAction {
                 System.out.println(item.toString());
             }
         }
-    }
-
-    /**
-     * Method to return menu line.
-     * @return - menu line
-     */
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Find items by name.");
     }
 }
 
@@ -190,15 +172,6 @@ public class MenuTracker {
                             input.ask("Enter description: ")
                     ));
         }
-
-        /**
-         * Method to return menu line.
-         * @return - menu line
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Add the new item.");
-        }
     }
     /**
      * Class to delete item.
@@ -232,14 +205,6 @@ public class MenuTracker {
             tracker.deleteItem(item);
             System.out.println("Item has been deleted");
         }
-        /**
-         * Method to return menu line.
-         * @return - menu line
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Delete item.");
-        }
     }
 
     /**
@@ -271,14 +236,6 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
 
-        }
-        /**
-         * Method to return menu line.
-         * @return - menu line
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Exit program.");
         }
     }
     /**
@@ -313,14 +270,6 @@ public class MenuTracker {
                 System.out.println(item);
             }
         }
-        /**
-         * Method to return menu line.
-         * @return - menu line
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Show all items.");
-        }
     }
     /**
      * Static class to find item by id.
@@ -353,13 +302,4 @@ public class MenuTracker {
             Item item = tracker.findById(input.ask("Enter id: "));
             System.out.println(item.toString());
         }
-        /**
-         * Method to return menu line.
-         * @return - menu line
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find item by id.");
-        }
-    }
 }
