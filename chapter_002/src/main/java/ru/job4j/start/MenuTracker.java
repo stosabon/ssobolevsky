@@ -277,7 +277,8 @@ public class MenuTracker {
     private static class FindItemById extends BaseAction {
         /**
          * Contructor to initialize action.
-         * @param key - key
+         *
+         * @param key  - key
          * @param name - name
          */
         FindItemById(int key, String name) {
@@ -286,15 +287,18 @@ public class MenuTracker {
 
         /**
          * Key of find item by id action.
+         *
          * @return - key
          */
         @Override
         public int key() {
             return 4;
         }
+
         /**
          * Method to find item by id.
-         * @param input - way of input
+         *
+         * @param input   - way of input
          * @param tracker - tracker
          */
         @Override
@@ -302,4 +306,5 @@ public class MenuTracker {
             Item item = tracker.findById(input.ask("Enter id: "));
             System.out.println(item.toString());
         }
+    }
 }
