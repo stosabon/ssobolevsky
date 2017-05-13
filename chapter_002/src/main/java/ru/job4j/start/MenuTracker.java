@@ -9,7 +9,16 @@ import ru.job4j.items.Tracker;
  * Outer class to edit item.
  * Created by pro on 10.05.2017.
  */
-class EditItem implements UserAction {
+class EditItem extends BaseAction {
+    /**
+     * Contructor to initialize action.
+     * @param key - key
+     * @param name - name
+     */
+    EditItem(int key, String name) {
+        super(key, name);
+    }
+
     /**
      * Method to return key of edit action.
      * @return key of edit action
@@ -46,7 +55,16 @@ class EditItem implements UserAction {
 /**
  * Outer class to find items by name.
  */
-class FindItemsByName implements UserAction {
+class FindItemsByName extends BaseAction {
+    /**
+     * Contructor to initialize action.
+     * @param key - key
+     * @param name - name
+     */
+    FindItemsByName(int key, String name) {
+        super(key, name);
+    }
+
     /**
      * Key of find action.
      * @return key
@@ -110,13 +128,13 @@ public class MenuTracker {
      * Method to fill actions.
      */
     public void fillActions() {
-        this.actions[0] = this.new AddItem();
-        this.actions[1] = new MenuTracker.ShowItems();
-        this.actions[2] = new EditItem();
-        this.actions[3] = this.new DeleteItem();
-        this.actions[4] = new MenuTracker.FindItemById();
-        this.actions[5] = new FindItemsByName();
-        this.actions[6] = this.new ExitProgram();
+        this.actions[0] = this.new AddItem(0, "Add the new item.");
+        this.actions[1] = new MenuTracker.ShowItems(1, "Show all items.");
+        this.actions[2] = new EditItem(2, "Update item.");
+        this.actions[3] = this.new DeleteItem(3, "Delete item.");
+        this.actions[4] = new MenuTracker.FindItemById(4, "Find item by id.");
+        this.actions[5] = new FindItemsByName(5, "Find item by name.");
+        this.actions[6] = this.new ExitProgram(6, "Exit.");
     }
     /**
      * Method to show menu.
@@ -140,7 +158,16 @@ public class MenuTracker {
     /**
      * Class to add item.
      */
-    private class AddItem implements UserAction {
+    private class AddItem extends BaseAction {
+        /**
+         * Contructor to initialize action.
+         * @param key - key
+         * @param name - name
+         */
+        AddItem(int key, String name) {
+            super(key, name);
+        }
+
         /**
          * Key of add action.
          * @return - key
@@ -176,7 +203,16 @@ public class MenuTracker {
     /**
      * Class to delete item.
      */
-    private class DeleteItem implements UserAction {
+    private class DeleteItem extends BaseAction {
+        /**
+         * Contructor to initialize action.
+         * @param key - key
+         * @param name - name
+         */
+        DeleteItem(int key, String name) {
+            super(key, name);
+        }
+
         /**
          * Key of delete action.
          * @return - key
@@ -209,7 +245,16 @@ public class MenuTracker {
     /**
      * Class to exit program.
      */
-    private class ExitProgram implements UserAction {
+    private class ExitProgram extends BaseAction {
+        /**
+         * Contructor to initialize action.
+         * @param key - key
+         * @param name - name
+         */
+        ExitProgram(int key, String name) {
+            super(key, name);
+        }
+
         /**
          * Key of exit action.
          * @return - key
@@ -239,7 +284,16 @@ public class MenuTracker {
     /**
      * Static class to dhow items.
      */
-    private static class ShowItems implements UserAction {
+    private static class ShowItems extends BaseAction {
+        /**
+         * Contructor to initialize action.
+         * @param key - key
+         * @param name - name
+         */
+        ShowItems(int key, String name) {
+            super(key, name);
+        }
+
         /**
          * Key of show action.
          * @return - key
@@ -271,7 +325,16 @@ public class MenuTracker {
     /**
      * Static class to find item by id.
      */
-    private static class FindItemById implements UserAction {
+    private static class FindItemById extends BaseAction {
+        /**
+         * Contructor to initialize action.
+         * @param key - key
+         * @param name - name
+         */
+        FindItemById(int key, String name) {
+            super(key, name);
+        }
+
         /**
          * Key of find item by id action.
          * @return - key
