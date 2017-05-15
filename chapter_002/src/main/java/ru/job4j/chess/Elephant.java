@@ -20,7 +20,7 @@ public class Elephant extends Figure {
      */
     @Override
     public Cell[] way(Cell dist) throws ImpossibleMoveException {
-        Cell source = new Cell(this.position.getxCoord(), this.position.getyCoord());
+        Cell source = new Cell(this.getPosition().getxCoord(), this.getPosition().getyCoord());
         Cell[] passedCells = new Cell[Math.abs(source.getyCoord() - dist.getyCoord())];
         if (source.getxCoord() != dist.getxCoord() && Math.abs(source.getyCoord() - dist.getyCoord()) == Math.abs(source.getxCoord() - dist.getxCoord())) {
             Cell passedCell = new Cell(source.getxCoord(), source.getyCoord());

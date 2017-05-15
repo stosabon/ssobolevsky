@@ -7,7 +7,7 @@ public abstract class Figure {
     /**
      * Position of figure.
      */
-    public final Cell position;
+    private final Cell position;
 
     /**
      * initialize of position.
@@ -34,4 +34,11 @@ public abstract class Figure {
         return dist;
     }
 
+    /**
+     * Getter for position.
+     * @return - position
+     */
+    public Cell getPosition() {
+        return position;
+    }
 }
