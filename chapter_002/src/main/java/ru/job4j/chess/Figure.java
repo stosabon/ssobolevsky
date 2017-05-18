@@ -41,4 +41,17 @@ public abstract class Figure {
     public Cell getPosition() {
         return position;
     }
+
+    public void formArray(Cell[] cells, Cell dist, Cell source) {
+        int posX = source.getxCoord();
+        int posY = source.getyCoord();
+
+        for (int i = 0; i < cells.length; i++) {
+            int stepX = dist.getxCoord() > posX ? 1 : dist.getxCoord() < posX ? -1 : 0;
+            int stepY = dist.getyCoord() > posY ? 1 : dist.getyCoord() < posY ? -1 : 0;
+            posX += stepX;
+            posY += stepY;
+            cells[i] = new Cell(posX, posY);
+        }
+    }
 }
