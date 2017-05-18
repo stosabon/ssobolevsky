@@ -3,7 +3,7 @@ package ru.job4j.chess;
 /**
  * Created by pro on 18.05.2017.
  */
-public class Queen extends Figure{
+public class Queen extends Figure {
     /**
      * initialize of position.
      *
@@ -26,7 +26,7 @@ public class Queen extends Figure{
 
         if ((source.getxCoord() != dist.getxCoord() || source.getyCoord() != dist.getyCoord())
                 && (Math.abs(source.getyCoord() - dist.getyCoord()) == Math.abs(source.getxCoord() - dist.getxCoord())
-                || source.getyCoord() == dist.getyCoord()  || source.getxCoord() == dist.getxCoord() )) {
+                || source.getyCoord() == dist.getyCoord()  || source.getxCoord() == dist.getxCoord())) {
             formArray(passedCells, dist, source);
         } else {
             throw new ImpossibleMoveException("Impossible move.");

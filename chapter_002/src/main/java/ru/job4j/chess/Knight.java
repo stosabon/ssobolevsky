@@ -3,7 +3,7 @@ package ru.job4j.chess;
 /**
  * Created by pro on 18.05.2017.
  */
-public class Knight extends  Figure{
+public class Knight extends  Figure {
     /**
      * initialize of position.
      *

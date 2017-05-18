@@ -42,6 +42,12 @@ public abstract class Figure {
         return position;
     }
 
+    /**
+     * method to form array of visited cells.
+     * @param cells - array of cells
+     * @param dist - finish cell
+     * @param source - start cell
+     */
     public void formArray(Cell[] cells, Cell dist, Cell source) {
         int posX = source.getxCoord();
         int posY = source.getyCoord();
