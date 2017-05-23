@@ -19,8 +19,6 @@ public class QueenTest {
         Cell[] result = queen.way(dist);
         assertThat(result[0].getxCoord(), is(1));
         assertThat(result[0].getyCoord(), is(2));
-        assertThat(result[1].getxCoord(), is(2));
-        assertThat(result[1].getyCoord(), is(2));
     }
 
     /**
