@@ -1,6 +1,11 @@
 package ru.job4j.collections;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.TreeSet;
 
 /**
  * Created by pro on 23.05.2017.
@@ -45,11 +50,11 @@ public class CollectionsSpeed {
         Collection<String> arrayList = new ArrayList<String>();
         Collection<String> linkedList = new LinkedList<String>();
         Collection<String> treeSet = new TreeSet<String>();
-        System.out.println(String.format("Add to ArrayList : %d", speed.add(arrayList, "Stas", 99999)));
-        System.out.println(String.format("Add to LinkedList : %d", speed.add(linkedList, "Stas", 99999)));
-        System.out.println(String.format("Add to TreeSet : %d", speed.add(treeSet, "Stas", 99999)));
-        System.out.println(String.format("Remove from ArrayList : %d", speed.delete(arrayList, 200)));
-        System.out.println(String.format("Remove from LinkedList : %d", speed.delete(linkedList, 200)));
-        System.out.println(String.format("Remove from TreeSet : %d", speed.delete(treeSet, 200)));
+        System.out.println(String.format("Add to ArrayList : %d", speed.add(arrayList, "Stas", 1000000)));
+        System.out.println(String.format("Add to LinkedList : %d", speed.add(linkedList, "Stas", 1000000)));
+        System.out.println(String.format("Add to TreeSet : %d", speed.add(treeSet, "Stas", 1000000)));
+        System.out.println(String.format("Remove from ArrayList : %d", speed.delete(arrayList, 10000)));
+        System.out.println(String.format("Remove from LinkedList : %d", speed.delete(linkedList, 10000)));
+        System.out.println(String.format("Remove from TreeSet : %d", speed.delete(treeSet, 10000)));
     }
 }
