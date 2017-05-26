@@ -41,4 +41,21 @@ public class ConvertTest {
         assertThat(result, is(expected));
     }
 
+    /**
+     * Method to test convert list of arrays to list of integers..
+     */
+    @Test
+    public void whenInputListOfArraysThenOutputNewListOfIntegers() {
+        List<Integer> expected = new ArrayList<Integer>();
+        for (int i = 1; i < 8; i++) {
+            expected.add(i);
+        }
+        Convert convertList = new Convert();
+        List<int[]> list = new ArrayList<int[]>();
+        list.add(new int[] {1, 2, 3});
+        list.add(new int[] {4, 5, 6, 7});
+        List<Integer> result = convertList.convert(list);
+        assertThat(result, is(expected));
+    }
+
 }

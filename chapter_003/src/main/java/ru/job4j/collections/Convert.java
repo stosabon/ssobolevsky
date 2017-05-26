@@ -45,4 +45,20 @@ public class Convert {
         return array;
     }
 
+    /**
+     * Method to convert list of arrays to list of integers.
+     * @param list - list of arrays
+     * @return list of integers
+     */
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> newList = new ArrayList<Integer>();
+        Iterator<int[]> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            for (Integer element : iterator.next()) {
+                newList.add(element);
+            }
+        }
+        return newList;
+    }
+
 }
