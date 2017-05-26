@@ -16,8 +16,8 @@ public class RobotTest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Robot robot = new Robot();
-        int result = robot.moveToEnd(0, 0, new int[][] {{0, 0, 0},{1, 0, 0},{1, 0, 0}});
-        int expected = 4;
+        int result = robot.moveToEnd(0, 0, new int[][] {{0, 0, 0, 0, 1}, {1, 0, 1, 0, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 1, 0}, {1, 0, 0, 1, 0}});
+        int expected = 8;
         assertThat(result, is(expected));
     }
 
