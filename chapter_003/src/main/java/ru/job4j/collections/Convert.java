@@ -52,9 +52,9 @@ public class Convert {
      */
     public List<Integer> convert(List<int[]> list) {
         List<Integer> newList = new ArrayList<Integer>();
-        Iterator<int[]> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            for (Integer element : iterator.next()) {
+
+        for (int[] array : list) {
+            for (Integer element : array) {
                 newList.add(element);
             }
         }
