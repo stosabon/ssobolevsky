@@ -5,6 +5,8 @@ import ru.job4j.interfaces.UserAction;
 import ru.job4j.items.Item;
 import ru.job4j.items.Tracker;
 
+import java.util.ArrayList;
+
 /**
  * Outer class to edit item.
  * Created by pro on 10.05.2017.
@@ -75,7 +77,7 @@ public class MenuTracker {
     /**
      * Array of actions.
      */
-    private UserAction[] actions = new UserAction[7];
+    private ArrayList<UserAction> actions = new ArrayList<UserAction>();
     /**
      * Constructor of menu.
      * @param input - input
@@ -90,13 +92,13 @@ public class MenuTracker {
      * Method to fill actions.
      */
     public void fillActions() {
-        this.actions[0] = this.new AddItem(0, "Add the new item.");
-        this.actions[1] = new MenuTracker.ShowItems(1, "Show all items.");
-        this.actions[2] = new EditItem(2, "Update item.");
-        this.actions[3] = this.new DeleteItem(3, "Delete item.");
-        this.actions[4] = new MenuTracker.FindItemById(4, "Find item by id.");
-        this.actions[5] = new FindItemsByName(5, "Find item by name.");
-        this.actions[6] = this.new ExitProgram(6, "Exit.");
+        this.actions.add(this.new AddItem(0, "Add the new item."));
+        this.actions.add(new MenuTracker.ShowItems(1, "Show all items."));
+        this.actions.add(new EditItem(2, "Update item."));
+        this.actions.add(this.new DeleteItem(3, "Delete item."));
+        this.actions.add(new MenuTracker.FindItemById(4, "Find item by id."));
+        this.actions.add(new FindItemsByName(5, "Find item by name."));
+        this.actions.add(this.new ExitProgram(6, "Exit."));
     }
     /**
      * Method to show menu.
@@ -114,7 +116,7 @@ public class MenuTracker {
      * @param key - key of action
      */
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     /**

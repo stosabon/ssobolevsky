@@ -1,5 +1,7 @@
 package ru.job4j.items;
 
+import java.util.ArrayList;
+
 /**
  * Created by pro on 01.05.2017.
  */
@@ -7,18 +9,14 @@ public class Tracker {
     /**
     * Array of Items.
     */
-    private Item[] items = new Item[10];
-    /**
-    * Number of Items.
-    */
-    private int numOfItems = 0;
+    private ArrayList<Item> items = new ArrayList<Item>();
     /**
     * Method to add Item.
     * @param item - new Item
     * @return added Item
     */
     public Item add(Item item) {
-        this.items[this.numOfItems++] = item;
+        this.items.add(item);
         return item;
     }
     /**
@@ -26,9 +24,9 @@ public class Tracker {
     * @param item - input Item
     */
     public void updateItem(Item item) {
-        for (int i = 0; i < this.numOfItems; i++) {
-            if (this.items[i].getId().equals(item.getId())) {
-                this.items[i] = item;
+        for (Item currentItem : items) {
+            if (currentItem.getId().equals(item.getId())) {
+                items.set(items.indexOf(currentItem), item);
                 break;
             }
         }
@@ -38,15 +36,9 @@ public class Tracker {
     * @param item - input Item
     */
     public void deleteItem(Item item) {
-        for (int i = 0; i < this.numOfItems; i++) {
-            if (this.items[i].getId().equals(item.getId())) {
-                if (i == this.numOfItems - 1) {
-                    this.items[i] = null;
-                    this.numOfItems--;
-                } else {
-                    System.arraycopy(this.items, i + 1, this.items, i, this.numOfItems - i - 1);
-                    this.numOfItems--;
-                }
+        for (Item currentItem : this.items) {
+            if (currentItem.getId().equals(item.getId())) {
+                items.remove(items.indexOf(currentItem));
                 break;
             }
         }
@@ -55,13 +47,10 @@ public class Tracker {
     * Method to find all not null Items.
     * @return array of items
     */
-    public Item[] findAll() {
-        Item[] items = new Item[this.numOfItems];
-        int numOfItems = 0;
-        for (int i = 0; i < this.numOfItems; i++) {
-            if (this.items[i] != null) {
-                items[numOfItems++] = this.items[i];
-            }
+    public ArrayList<Item> findAll() {
+        ArrayList<Item> items = new ArrayList<Item>();
+        for (Item currentItem : this.items) {
+            items.add(currentItem);
         }
         return items;
     }
@@ -70,15 +59,14 @@ public class Tracker {
     * @param key - name of Item
     * @return array of items
     */
-    public Item[] findByName(String key) {
-        Item[] newItems = new Item[this.numOfItems];
-        int newNumOfItems = 0;
-        for (int i = 0; i < this.numOfItems; i++) {
-            if (this.items[i].getName() != null && this.items[i].getName().equals(key)) {
-                newItems[newNumOfItems++] = this.items[i];
+    public ArrayList<Item> findByName(String key) {
+        ArrayList<Item> items = new ArrayList<Item>();
+        for (Item currentItem : this.items) {
+            if (currentItem.getName().equals(key)) {
+                items.add(currentItem);
             }
         }
-        return newItems;
+        return items;
     }
     /**
     * Method to find Item by ID.
@@ -87,9 +75,9 @@ public class Tracker {
     */
     public Item findById(String id) {
         Item result = null;
-        for (int i = 0; i < this.numOfItems; i++) {
-            if (items[i].getId() != null && items[i].getId().equals(id)) {
-                result = this.items[i];
+        for (Item currentItem : this.items) {
+            if (currentItem.getId().equals(id)) {
+                result = currentItem;
                 break;
             }
         }

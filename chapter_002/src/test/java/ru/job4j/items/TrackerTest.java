@@ -19,7 +19,7 @@ public class TrackerTest {
         Item item2 = new Item("2", "firstItem2", "desc2");
         tracker.add(item);
         tracker.add(item2);
-        assertThat(tracker.findAll()[1], is(item2));
+        assertThat(tracker.findAll().get(1), is(item2));
     }
     /**
     * Test method to update item.
@@ -31,7 +31,7 @@ public class TrackerTest {
         Item newItem = new Item("1", "firstItem2", "desc2");
         tracker.add(item);
         tracker.updateItem(newItem);
-        assertThat(tracker.findAll()[0], is(newItem));
+        assertThat(tracker.findAll().get(0), is(newItem));
     }
     /**
     * Test method to delete item.
@@ -50,7 +50,7 @@ public class TrackerTest {
         tracker.add(item4);
         tracker.add(item5);
         tracker.deleteItem(item4);
-        assertThat(tracker.findAll()[3], is(item5));
+        assertThat(tracker.findAll().get(3), is(item5));
     }
     /**
     * Test method find item by id.
@@ -74,6 +74,6 @@ public class TrackerTest {
         Item item2 = new Item("2", "firstItem", "desc2");
         tracker.add(item);
         tracker.add(item2);
-        assertThat(tracker.findByName("firstItem")[0], is(item));
+        assertThat(tracker.findByName("firstItem").get(0), is(item));
     }
 }
