@@ -36,9 +36,9 @@ public class Tracker {
     * @param item - input Item
     */
     public void deleteItem(Item item) {
-        for (Item currentItem : this.items) {
-            if (currentItem.getId().equals(item.getId())) {
-                items.remove(items.indexOf(currentItem));
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId().equals(item.getId())) {
+                items.remove(items.get(i));
                 break;
             }
         }
