@@ -13,11 +13,17 @@ public class Users implements Comparable<Users> {
      */
     private String name;
 
+    /**
+     * getter of name.
+     * @return - name of user
+     */
+    public String getName() {
+        return name;
+    }
+
     @Override
     public int compareTo(Users o) {
-        String thisString = String.valueOf(this.age);
-        String anotherString = String.valueOf(o.age);
-        return thisString.compareTo(anotherString);
+        return Integer.compare(this.age, o.age);
     }
 
     /**

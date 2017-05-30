@@ -1,5 +1,6 @@
 package ru.job4j.collections;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -10,15 +11,47 @@ import java.util.TreeSet;
 public class SortUser {
     /**
      * Method to sort users by age.
-     * @param users - list of users.
+     * @param list - list of users.
      * @return TreeSet sorted by age
      */
-    public Set<Users> sort(List<Users> users) {
+    public Set<Users> sort(List<Users> list) {
         Set<Users> set = new TreeSet<Users>();
-            for (Users user : users) {
-                set.add(user);
-            }
+        set.addAll(list);
         return set;
+    }
+
+    /**
+     * Method to sort users by hashcode.
+     * @param list - input list
+     * @return List sorted by Hashcode
+     */
+    List<Users> sortHash (List<Users> list) {
+        list.sort(
+                new Comparator<Users>() {
+                    @Override
+                    public int compare(Users o1, Users o2) {
+                        return Integer.compare(o1.hashCode(), o2.hashCode());
+                    }
+                }
+        );
+        return list;
+    }
+
+    /**
+     * Method to sort users by name length.
+     * @param list - input list
+     * @return sorted list by name length
+     */
+    List<Users> sortLength (List<Users> list) {
+        list.sort(
+                new Comparator<Users>() {
+                    @Override
+                    public int compare(Users o1, Users o2) {
+                        return Integer.compare(o1.getName().length(), o2.getName().length());
+                    }
+                }
+        );
+        return list;
     }
 
 }
