@@ -44,7 +44,11 @@ public class Bank {
      * @param account - account
      */
     public void addAccountToUser(User user, Account account) {
-        users.get(user).add(account);
+        if (user != null && users.containsKey(user)) {
+            users.get(user).add(account);
+        } else {
+            throw new UserNotFoundException("User Not Found");
+        }
     }
 
     /**
@@ -53,7 +57,11 @@ public class Bank {
      * @param account - account
      */
     public void deleteAccountFromUser(User user, Account account) {
-        users.get(user).remove(account);
+        if (user != null && users.containsKey(user)) {
+            users.get(user).remove(account);
+        } else {
+            throw new UserNotFoundException("User Not Found");
+        }
     }
 
     /**
@@ -82,7 +90,6 @@ public class Bank {
             users.get(srcUser).set(users.get(srcUser).indexOf(srcAccount), new Account(srcAccount.getRequisites(), srcAccount.getValue() - amount));
             users.get(dstUser).set(users.get(dstUser).indexOf(dstAccount), new Account(dstAccount.getRequisites(), dstAccount.getValue() + amount));
         }
-
         return result;
     }
 }
