@@ -53,6 +53,16 @@ public class BankTest {
         assertThat(bank.getUserAccounts(new User("Stas", 323456)), is(expected.get(new User("Stas", 323456))));
     }
     /**
+     * Test to add account to user.
+     */
+    @Test(expected = UserNotFoundException.class)
+    public void whenAddAccountUserThenUserNotFound() {
+        Bank bank = new Bank();
+        bank.addUser(new User("Stas", 323456));
+        bank.addAccountToUser(new User("Stas2", 323456), new Account(1, 1000));
+
+    }
+    /**
      * Test to delete account from user.
      */
     @Test
