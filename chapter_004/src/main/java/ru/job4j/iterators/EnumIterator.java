@@ -16,25 +16,27 @@ public class EnumIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        boolean result = false;
-        for (int i = index; i < values.length; i++) {
-            if (values[i] % 2 == 0) {
-                result = true;
-                break;
-            }
-        }
-        return result;
+        return hasEnum() == -1 ? false : true;
     }
 
     @Override
     public Object next() {
-        while (values[index] % 2 != 0 && index < values.length) {
-            index++;
-        }
-        if (index == values.length) {
+        index = hasEnum();
+        if (index == -1) {
             throw new NoSuchElementException();
         } else {
             return values[index++];
         }
+    }
+
+    private int hasEnum() {
+        int result = -1;
+        for (int i = index; i < values.length; i++) {
+            if (values[i] % 2 == 0) {
+                result = i;
+                break;
+            }
+        }
+        return result;
     }
 }
