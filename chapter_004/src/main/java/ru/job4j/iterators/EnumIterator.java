@@ -7,9 +7,18 @@ import java.util.NoSuchElementException;
  * Created by pro on 06.06.2017.
  */
 public class EnumIterator implements Iterator {
+    /**
+     * Input matrix.
+     */
     private final int[] values;
+    /**
+     * Index of array.
+     */
     private int index = 0;
-
+    /**
+     * Initialize of array.
+     * @param values - array
+     */
     public EnumIterator(final int[] values) {
         this.values = values;
     }
