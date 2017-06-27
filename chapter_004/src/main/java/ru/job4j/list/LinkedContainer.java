@@ -36,7 +36,7 @@ public class LinkedContainer<E> implements SimpleList<E> {
     public E get(int index) {
         int currentIndex = 0;
         Node<E> currentNode = this.first;
-        if (index < this.size) {
+        if (index < this.size && index >= 0) {
             while (currentIndex < index) {
                 currentNode = currentNode.next;
                 currentIndex++;
