@@ -43,4 +43,13 @@ public class LinkedContainerTest {
         assertThat(iterator.hasNext(), is(false));
 
     }
+    /**
+     * Test wrong index.
+     */
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void whenIndexIsWrongThenIndexOutBounds() {
+        LinkedContainer<Integer> container = new LinkedContainer<>();
+
+        container.get(-1);
+    }
 }
