@@ -8,26 +8,21 @@ import java.util.NoSuchElementException;
  */
 public class StackList<E> implements Iterable<E> {
     /**
-     * Previous node.
+     * First node of stack.
      */
     private Node<E> first = new Node<>(null, null, null);
     /**
-     * Current node.
+     * Current node of stack.
      */
     private Node<E> current = new Node<>(null, null, null);
     /**
-     * Last node.
+     * Last node of stack.
      */
     private Node<E> last = new Node<>(null, null, null);
-    /**
-     * First node.
-     */
-
     /**
      * Method to add element
      * @param value - value
      */
-
     public void add(E value) {
         Node<E> currentNode = new Node<>(null, value, null);
         if (this.last.item == null) {
@@ -43,17 +38,30 @@ public class StackList<E> implements Iterable<E> {
     public Iterator<E> iterator() {
         return new StackIterator();
     }
-
-
     /**
      * Node of queue.
      * @param <E> - type
      */
     private class Node<E> {
+        /**
+         * Item of node.
+         */
         E item;
+        /**
+         * Next node.
+         */
         Node<E> next;
+        /**
+         * Previous node.
+         */
         Node<E> prev;
 
+        /**
+         * Constructor of node.
+         * @param prev - previous node
+         * @param element - item of node
+         * @param next - next node
+         */
         Node(Node<E> prev, E element, Node<E> next) {
             this.item = element;
             this.next = next;
@@ -61,6 +69,9 @@ public class StackList<E> implements Iterable<E> {
         }
     }
 
+    /**
+     * Iterator for stack.
+     */
     private class StackIterator implements Iterator<E> {
 
         @Override
