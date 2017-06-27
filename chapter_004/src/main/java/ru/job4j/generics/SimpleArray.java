@@ -3,11 +3,11 @@ package ru.job4j.generics;
 /**
  * Created by pro on 13.06.2017.
  */
-public class SimpleArray<T> {
+public class SimpleArray<T extends Base> {
     /**
      * Container of objects.
      */
-    private Object[] array;
+    private T[] array;
     /**
      * Index of object.
      */
@@ -15,10 +15,10 @@ public class SimpleArray<T> {
 
     /**
      * Constructor of array.
-     * @param size - size of array
+     * @param o - array
      */
-    public SimpleArray(int size) {
-        this.array = new Object[size];
+    public SimpleArray(T[] o) {
+        this.array = o;
     }
 
     /**
@@ -31,19 +31,30 @@ public class SimpleArray<T> {
 
     /**
      * Method to update object.
-     * @param index - index of object
+     * @param id - new id
      * @param value - value
      */
-    public void update(int index, T value) {
-            this.array[index] = value;
+    public void update(String id, T value) {
+        for (T element : array) {
+            if (element.getId().equals(value.getId())) {
+                element.setId(id);
+            }
+        }
     }
 
     /**
      * Method to remove object
-     * @param index - index
+     * @param id - id
      */
-    public void remove(int index) {
-        System.arraycopy(this.array, index, this.array,index + 1, this.array.length - index);
+    public void remove(String id) {
+        int currentIndex = 0;
+        for (T element : array) {
+            currentIndex++;
+            if (element.getId().equals(id)) {
+                System.arraycopy(this.array, currentIndex, this.array,currentIndex + 1, this.array.length - currentIndex);
+                break;
+            }
+        }
         this.index--;
     }
 

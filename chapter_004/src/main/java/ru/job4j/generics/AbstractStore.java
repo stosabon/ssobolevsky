@@ -20,20 +20,20 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
 
     /**
      * Method to update object.
-     * @param index - index
+     * @param id - id
      * @param value - value
      */
     @Override
-    public void update(int index, T value) {
-        this.objects.update(index, value);
+    public void update(String id, T value) {
+        this.objects.update(id, value);
     }
 
     /**
      * Method to remove object.
-     * @param index - index
+     * @param id - id
      */
     @Override
-    public void remove(int index) {
-        this.objects.remove(index);
+    public void remove(String id) {
+        this.objects.remove(id);
     }
 }

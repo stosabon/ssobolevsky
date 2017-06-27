@@ -12,10 +12,10 @@ public interface Store<T extends Base> {
     /**
      * Method to update.
      */
-    void update(int index, T value);
+    void update(String id, T value);
 
     /**
      * Method to remove.
      */
-    void remove(int index);
+    void remove(String id);
 }
