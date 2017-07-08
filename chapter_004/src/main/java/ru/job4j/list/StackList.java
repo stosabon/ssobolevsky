@@ -20,10 +20,10 @@ public class StackList<E> implements Iterable<E> {
      */
     private Node<E> last = new Node<>(null, null, null);
     /**
-     * Method to add element
+     * Method to push element to the top of stack.
      * @param value - value
      */
-    public void add(E value) {
+    public void push(E value) {
         Node<E> currentNode = new Node<>(null, value, null);
         if (this.last.item == null) {
             this.last.item = value;
@@ -32,6 +32,22 @@ public class StackList<E> implements Iterable<E> {
             this.first.prev = currentNode;
         }
         this.first = currentNode;
+    }
+
+    /**
+     * Method to remove element from the top of stack.
+     */
+    public E pop() {
+        E result = null;
+        if (this.first != null) {
+            result = this.first.item;
+            if (this.first.next != null) {
+                this.first = this.first.next;
+            } else {
+                this.first = null;
+            }
+        }
+        return result;
     }
 
     @Override
