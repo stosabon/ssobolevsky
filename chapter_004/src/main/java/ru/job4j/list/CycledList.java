@@ -67,12 +67,14 @@ public class CycledList<T> implements Iterable<T> {
      */
     public boolean hasCycle(Node<T> first) {
         boolean result = false;
-        Node<T> current = first.next;
-        while (current.next != null && result == false) {
-            if (current == first) {
+        Node<T> current = first;
+        Node<T> currentNext = first.next;
+        while (current.next != null && current.next.next != null && result == false) {
+            if (current == currentNext) {
                 result = true;
             } else {
                 current = current.next;
+                currentNext = current.next.next;
             }
         }
         return result;
