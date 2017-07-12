@@ -1,6 +1,8 @@
 package ru.job4j.set;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by pro on 09.07.2017.
@@ -9,38 +11,18 @@ public class SimpleSet<T> implements Iterable<T> {
     /**
      * Container of objects.
      */
-    private Object[] container;
-    /**
-     * Size of set.
-     */
-    private int size = 0;
+    private List<T> container = new ArrayList<>();
     /**
      * Current position.
      */
     private int position = 0;
-
-    /**
-     * Constructor to initialize size.
-     * @param size - size of container.
-     */
-    public SimpleSet(int size) {
-        this.container = new Object[size];
-    }
-
     /**
      * Method to add element to set.
      * @param value - element
      */
-
     public void add(T value) {
-        boolean isDublicate = false;
-        for (int index = 0; index < this.position; index++) {
-            if (this.container[index].equals(value)){
-                isDublicate = true;
-            }
-        }
-        if (!isDublicate) {
-            this.container[position++] = value;
+        if (!container.contains(value)) {
+            container.add(value);
         }
     }
 
@@ -53,12 +35,12 @@ public class SimpleSet<T> implements Iterable<T> {
             private int index = 0;
             @Override
             public boolean hasNext() {
-                return container.length > position;
+                return container.size() > position;
             }
 
             @Override
             public T next() {
-                return (T) container[this.index++];
+                return (T) container.get(index++);
             }
         };
     }

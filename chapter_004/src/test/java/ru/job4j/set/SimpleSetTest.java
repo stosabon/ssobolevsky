@@ -16,7 +16,7 @@ public class SimpleSetTest {
      */
     @Test
     public void whenAddElementThenItAdded() {
-        SimpleSet<String> set = new SimpleSet<>(5);
+        SimpleSet<String> set = new SimpleSet<>();
         Iterator<String> iterator = set.iterator();
 
         set.add("first");
