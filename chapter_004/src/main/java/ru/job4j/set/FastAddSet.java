@@ -22,10 +22,12 @@ public class FastAddSet<T> implements Iterable<T> {
      * Method to add element to set.
      * @param value - element
      */
-    public void add(T value) {
+    public long add(T value) {
+        long startTime = System.nanoTime();
         if (map.put(value, new Object()) == null) {
             container.add(value);
         }
+        return System.nanoTime() - startTime;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class FastAddSet<T> implements Iterable<T> {
             private int index = 0;
             @Override
             public boolean hasNext() {
-                return container.size() > position;
+                return container.size() > this.index;
             }
 
             @Override

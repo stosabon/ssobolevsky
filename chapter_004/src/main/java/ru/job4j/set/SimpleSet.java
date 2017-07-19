@@ -20,10 +20,12 @@ public class SimpleSet<T> implements Iterable<T> {
      * Method to add element to set.
      * @param value - element
      */
-    public void add(T value) {
+    public long add(T value) {
+        long startTime = System.nanoTime();
         if (!container.contains(value)) {
             container.add(value);
         }
+        return System.nanoTime() - startTime;
     }
 
     @Override
