@@ -26,9 +26,9 @@ public class MyCompany implements ICompanyService {
 
     @Override
     public long getEmployeeCountForCompanyAndChildren(MyCompany company, List<MyCompany> companies) {
-        long numOfChildren = 0;
+        long numOfChildren = company.employeeCount;
         for (MyCompany myCompany : companies) {
-            if (myCompany.parent.equals(company) || myCompany.equals(company)) {
+            if (myCompany.parent.equals(company)) {
                 numOfChildren += myCompany.employeeCount;
             }
         }
