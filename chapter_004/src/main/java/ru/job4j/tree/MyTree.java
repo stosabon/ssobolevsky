@@ -18,7 +18,11 @@ public class MyTree <E extends Comparable<E>> implements SimpleTree<E> {
     /**
      * Current parent.
      */
-    private Node<E> currentParent = root;
+    private Node<E> currentParent;
+    /**
+     * Current child.
+     */
+    private Node<E> currentChild;
     /**
      * Node.
      * @param <E> type of value.
@@ -51,28 +55,33 @@ public class MyTree <E extends Comparable<E>> implements SimpleTree<E> {
     @Override
     public boolean add(E parent, E child) {
         boolean result = false;
-        if (this.currentParent.value == null) {
-            this.currentParent.value = parent;
+        Node<E> childNode = new Node<>();
+        childNode.value = child;
+        Node<E> parentNode = new Node<>();
+        parentNode.value = parent;
+
+        if (this.root.value == null) {
+            this.root.value = parent;
+            this.root.children.add(childNode);
+            result = true;
+            this.currentParent = this.root;
+        } else if (this.currentParent.value.equals(parent)) {
+            this.currentParent.children.add(childNode);
+            this.currentParent = this.root;
+            result = true;
+        } else if (this.currentParent.children.contains(parentNode)) {
+            this.currentParent = currentParent.children.get(currentParent.children.indexOf(parentNode));
             Node<E> node = new Node<>();
             node.value = child;
             this.currentParent.children.add(node);
+            this.currentParent = this.root;
             result = true;
         } else {
-            if (currentParent.value.equals(parent)) {
-                Node<E> node = new Node<>();
-                node.value = child;
-                this.currentParent.children.add(node);
-                result = true;
-            }
-            else {
                 int index = 0;
-                if (this.currentParent.children.size() != 0) {
-                    while (index < this.currentParent.children.size() || result == false) {
-                        Node<E> currentChild = this.currentParent.children.get(index++);
-                        result = add(currentChild.value, child);
-                    }
+                this.currentChild = this.currentParent.children.get(index++);
+                while ((index < this.currentParent.children.size() && !result)) {
+                    result = add(parent, child);
                 }
-            }
         }
 
         return result;
