@@ -64,29 +64,30 @@ public class MyTree <E extends Comparable<E>> implements SimpleTree<E> {
             this.root.value = parent;
             this.root.children.add(childNode);
             result = true;
-            this.currentParent = this.root;
-        } else if (this.currentParent.value.equals(parent)) {
+        } else if (this.root.value.equals(parent)) {
+            this.root.children.add(childNode);
+            result = true;
+        } else if (findParent(root.children, parent) != null) {
+            this.currentParent = findParent(root.children, parent);
             this.currentParent.children.add(childNode);
-            this.currentParent = this.root;
             result = true;
-        } else if (this.currentParent.children.contains(parentNode)) {
-            this.currentParent = currentParent.children.get(currentParent.children.indexOf(parentNode));
-            Node<E> node = new Node<>();
-            node.value = child;
-            this.currentParent.children.add(node);
-            this.currentParent = this.root;
-            result = true;
-        } else {
-                int index = 0;
-                this.currentChild = this.currentParent.children.get(index++);
-                while ((index < this.currentParent.children.size() && !result)) {
-                    result = add(parent, child);
-                }
         }
 
         return result;
     }
+    private Node<E> findParent(List<Node<E>> children, E parent) {
 
+        Node<E> parentNode = new Node<>();
+        parentNode.value = parent;
+        for (Node<E> child : children) {
+            if (child.value.equals(parent)) {
+                return parentNode;
+            } else {
+                return findParent(child.children, parent);
+            }
+        }
+        return null;
+    }
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
