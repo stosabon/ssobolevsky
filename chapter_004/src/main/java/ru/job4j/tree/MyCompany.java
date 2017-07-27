@@ -6,9 +6,20 @@ import java.util.List;
  * Created by pro on 26.07.2017.
  */
 public class MyCompany implements ICompanyService {
+    /**
+     * Parent of company.
+     */
     public final MyCompany parent;
+    /**
+     * Num of employeers in company.
+     */
     public final long employeeCount;
 
+    /**
+     * Constructor of company.
+     * @param parent - parent
+     * @param employeeCount - num of employeers
+     */
     public MyCompany(MyCompany parent, long employeeCount) {
         this.parent = parent;
         this.employeeCount = employeeCount;
@@ -26,12 +37,12 @@ public class MyCompany implements ICompanyService {
 
     @Override
     public long getEmployeeCountForCompanyAndChildren(MyCompany company, List<MyCompany> companies) {
-        long numOfChildren = company.employeeCount;
+        long count = company.employeeCount;
         for (MyCompany myCompany : companies) {
-            if (myCompany.parent.equals(company)) {
-                numOfChildren += myCompany.employeeCount;
+            if (myCompany.parent != null && myCompany.parent.equals(company)) {
+                count += getEmployeeCountForCompanyAndChildren(myCompany, companies);
             }
         }
-        return numOfChildren;
+        return count;
     }
 }

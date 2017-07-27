@@ -18,12 +18,16 @@ public class MyCompanyTest {
      */
     @Test
     public void whenAddParentAndChildThenReturnCountOfEmployeers() {
-        MyCompany myCompany = new MyCompany(null, 10);
+        MyCompany myCompany2 = new MyCompany(null, 5);
+        MyCompany myCompany = new MyCompany(myCompany2 , 20);
         List<MyCompany> list = new ArrayList<>();
         list.add(new MyCompany(myCompany, 10));
         list.add(new MyCompany(myCompany, 10));
         list.add(new MyCompany(myCompany, 10));
+        list.add(myCompany);
+        list.add(myCompany2);
 
-        assertThat(myCompany.getEmployeeCountForCompanyAndChildren(myCompany, list), is(40L));
+        assertThat(myCompany.getEmployeeCountForCompanyAndChildren(myCompany, list), is(50L));
+        assertThat(myCompany.getEmployeeCountForCompanyAndChildren(myCompany2, list), is(55L));
     }
 }
