@@ -4,6 +4,7 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -83,33 +84,54 @@ public class MyTree <E extends Comparable<E>> implements SimpleTree<E> {
             if (child.value.equals(parent)) {
                 return parentNode;
             } else {
-                return findParent(child.children, parent);
+                findParent(child.children, parent);
             }
         }
         return null;
     }
     @Override
-    public Iterator<E> iterator() {
-        return new Iterator<E>() {
-            /**
-             * Current index.
-             */
-            private int index = 0;
-            /**
-             * Current node.
-             */
-            private Node<E> currentNode = root;
-            @Override
-            public boolean hasNext() {
-                return false;
-            }
+    public Iterator iterator() {
+        return new MyIterator();
+    }
+    private class MyIterator implements Iterator<E> {
+        /**
+         * Curreint index.
+         */
+        private int index = 0;
+        /**
+         * Current node.
+         */
+        private Node<E> currentNode = root;
+        /**
+         * List.
+         */
+        private List<Node<E>> list = new ArrayList<>();
 
-            @Override
-            public E next() {
-                E result = currentNode.value;
+        /**
+         * Constructo to convert tree to list.
+         */
+        public MyIterator() {
+            list.add(root);
+            formQueue(root.children);
+        }
 
-                return result;
+        /**
+         * Method to form queue from tree.
+         */
+        private void formQueue(List<Node<E>> children) {
+            for (Node<E> child : children) {
+                list.add(child);
+                formQueue(child.children);
             }
-        };
+        }
+        @Override
+        public boolean hasNext() {
+            return this.index < list.size();
+        }
+
+        @Override
+        public E next() {
+            return list.get(this.index++).value;
+        }
     }
 }
